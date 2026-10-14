@@ -1,14 +1,13 @@
-import express from 'express'
 
-import upload from '../config/upload.js'
-import UploadController from '../controllers/upload.controller.js'
-import UserController from '../controllers/user.controller.js'
-import WelcomeController from '../controllers/welcome.controller.js'
+import express from 'express'
+import KendaraanController from '../controllers/kendaraan.controller.js'
 
 const router = express.Router()
 
-router.get('/welcome', WelcomeController.welcome)
-router.post('/users', UserController.store)
-router.post('/upload', upload.single('file'), UploadController.store)
+router.post('/kendaraans', KendaraanController.store)
+router.get('/kendaraans', KendaraanController.index)
+router.get('/kendaraans/:id', KendaraanController.show)
+router.put('/kendaraans/:id', KendaraanController.update)
+router.delete('/kendaraans/:id', KendaraanController.destroy)
 
 export default router
